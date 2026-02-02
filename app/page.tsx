@@ -1,8 +1,11 @@
-import React from 'react'
+import Sidebar from './features/sidebar/SideBar'
+import { Box } from '@chakra-ui/react'
 
 const page = () => {
   return (
-    <div> page new 3</div>
+    <Box>
+      <Sidebar />
+    </Box>
   )
 }
 
