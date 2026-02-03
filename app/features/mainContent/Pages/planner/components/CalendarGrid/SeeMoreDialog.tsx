@@ -84,8 +84,13 @@ export const SeeMoreDialog = ({
           onTriggerClick();
         }}
       >
-        <Text fontSize="14px" fontWeight="bold" color="#6B7280">
-          + {item.overflowCount}
+        <Text
+          fontSize="10px"
+          fontWeight="bold"
+          color="#6B7280"
+          textAlign="center"
+        >
+          See all
         </Text>
       </Box>
 

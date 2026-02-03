@@ -1,4 +1,4 @@
-import { Box, Button, HStack, Text, VStack } from "@chakra-ui/react";
+import { Box, Button, HStack, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import {
   IoChevronBack,
@@ -10,15 +10,19 @@ import { LuFilter } from "react-icons/lu";
 import { LuPlus } from "react-icons/lu";
 import DropDown from "./DropDown";
 
-const RightSide = () => {
+const RightSide = ({
+  viewType,
+  setViewType,
+}: {
+  viewType: string;
+  setViewType: (view: string) => void;
+}) => {
   // Dropdown
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  // Selected option
-  const [selectedOption, setSelectedOption] = useState("This Day");
 
   // Handle option click
   const handleOptionClick = (option: string) => {
-    setSelectedOption(option);
+    setViewType(option);
     setIsDropdownOpen(false);
   };
 
@@ -96,7 +100,7 @@ const RightSide = () => {
             alignItems={"center"}
           />
           <Text fontSize={"14px"} fontWeight={"semibold"}>
-            {selectedOption}
+            {viewType}
           </Text>
           <IoChevronDown
             size={16}

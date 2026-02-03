@@ -1,9 +1,13 @@
 "use client";
 import { HStack, Box, Text, Button } from "@chakra-ui/react";
-import { useState } from "react";
 
-const PlannerTab = () => {
-  const [activeTab, setActiveTab] = useState<"live" | "planner">("live");
+const PlannerTab = ({
+  activeTab,
+  setActiveTab,
+}: {
+  activeTab: "live" | "planner";
+  setActiveTab: (tab: "live" | "planner") => void;
+}) => {
   return (
     // Tabs
     <Box pr="32px" pl="28px" w="full">

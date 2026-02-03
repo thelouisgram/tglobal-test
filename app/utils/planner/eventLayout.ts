@@ -123,14 +123,14 @@ const processCluster = (cluster: Event[]): RenderItem[] => {
 
     if (hasOverflow) {
         if (laneIndex === 0) {
-            widthStr = "calc(50% - 20px)";
+            widthStr = "33.33%";
             leftStr = "0%";
         } else if (laneIndex === 1) {
-            widthStr = "calc(50% - 20px)";
-            leftStr = "calc(50% - 20px)";
+            widthStr = "33.33%";
+            leftStr = "33.33%";
         } else {
-            widthStr = "38px";
-            leftStr = "calc(100% - 38px)";
+            widthStr = "33.33%";
+            leftStr = "66.66%";
         }
     } else if (hasLane1) {
         widthStr = "50%";
@@ -194,7 +194,7 @@ const processCluster = (cluster: Event[]): RenderItem[] => {
   return items;
 };
 
-// Create a "See More" item for overflow events
+// Create a "See all" item for overflow events
 const createSeeMoreItem = (overflowEvents: Event[], allClusterEvents: Event[]): RenderItem => {
     let minStart = Infinity;
     overflowEvents.forEach(e => {
@@ -214,8 +214,8 @@ const createSeeMoreItem = (overflowEvents: Event[], allClusterEvents: Event[]): 
         position: {
             top: `${topPx}px`,
             height: `${heightPx}px`,
-            left: `calc(100% - 38px)`,
-            width: `38px`
+            left: `66.66%`,
+            width: `33.33%`
         }
     };
 };
