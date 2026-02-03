@@ -40,7 +40,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         width={20}
         height={20}
         alt="Start Pagina"
-        src="./assets/startpagina.svg"
+        src="./assets/pagina.svg"
       />
     );
   };
