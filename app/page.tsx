@@ -1,11 +1,13 @@
 import Sidebar from './features/sidebar/SideBar'
-import { Box } from '@chakra-ui/react'
+import { HStack } from '@chakra-ui/react'
+import MainContent from './features/mainContent/MainContent'
 
 const page = () => {
   return (
-    <Box>
+    <HStack w='full' h='100vh' gap={0} bg='white'>
       <Sidebar />
-    </Box>
+      <MainContent />
+    </HStack>
   )
 }
 

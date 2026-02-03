@@ -12,7 +12,6 @@ import {
   Button,
 } from "@chakra-ui/react";
 import {
-  Calendar,
   Document,
   CalendarEdit,
   Setting2,
@@ -82,12 +81,15 @@ const Sidebar: React.FC<SidebarProps> = ({
   return (
     <Box
       w="260px"
-      h="100vh"
+      h="full"
       bg="white"
       py={6}
       overflowY="auto"
       fontSize="16px"
-      fontWeight='semibold'
+      fontWeight="semibold"
+      borderRight="1px solid"
+      borderColor="gray.200"
+      flexShrink={0}
     >
       <VStack align="stretch" gap={1}>
         {/* Logo Section */}
@@ -96,7 +98,7 @@ const Sidebar: React.FC<SidebarProps> = ({
           align="center"
           pl="21px"
           pr="11px"
-          mb='37.1px'
+          mb="37.1px"
         >
           <Box>
             <Image src="/assets/logo.svg" alt="Logo" width={157} height={39} />
@@ -104,7 +106,7 @@ const Sidebar: React.FC<SidebarProps> = ({
 
           <Button
             border="1px solid"
-            borderColor="#F0F5FA"
+            borderColor="gray.100"
             borderRadius="8px"
             width="36px"
             height="36px"
@@ -114,7 +116,7 @@ const Sidebar: React.FC<SidebarProps> = ({
             cursor="pointer"
             _hover={{ bg: "gray.50" }}
           >
-            <HamburgerMenu size={20} color="#2D3648" />
+            <HamburgerMenu size="24px" color="gray.800" />
           </Button>
         </HStack>
 
@@ -138,20 +140,28 @@ const Sidebar: React.FC<SidebarProps> = ({
                   p="12px"
                   cursor="pointer"
                   onClick={toggleRooster}
-                  _hover={{ bg: "#F7FAFC" }}
+                  _hover={{ bg: "gray.50" }}
                   borderRadius="8px"
                   gap={3}
                 >
                   <Rooster />
-                  <Text fontSize="16px" fontWeight="bold" color="#2D3648" flex={1}>
+                  <Text
+                    fontSize="16px"
+                    fontWeight="bold"
+                    color="gray.800"
+                    flex={1}
+                  >
                     Rooster
                   </Text>
                   <Icon
                     as={ArrowDown2}
                     boxSize="20px"
-                    color="#2D3648"
-                    transform={isRoosterOpen ? "rotate(180deg)" : "rotate(0deg)"}
+                    color="gray.800"
+                    transform={
+                      isRoosterOpen ? "rotate(180deg)" : "rotate(0deg)"
+                    }
                     transition="transform 0.2s"
+                    strokeWidth={2.5}
                   />
                 </HStack>
               </Collapsible.Trigger>

@@ -9,20 +9,16 @@ export const MenuItem: React.FC<MenuItemComponentProps> = ({
   return (
     <HStack
       pl="12px"
-      py='11px'
+      py="11px"
       cursor="pointer"
       onClick={onClick}
       gap={3}
       position="relative"
     >
-      <Icon
-        as={item.icon}
-        boxSize='20px'
-        color="#292D32"
-      />
+      <Icon as={item.icon} boxSize="20px" color="gray.800" />
       <Text
         fontWeight={isActive ? "bold" : "medium"}
-        color={isActive ? "black" : "#4E5D69"}
+        color={isActive ? "black" : "gray.600"}
         flex={1}
       >
         {item.label}

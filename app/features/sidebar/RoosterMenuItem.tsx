@@ -1,7 +1,6 @@
 import { HStack, Icon, Text, Box } from "@chakra-ui/react";
 import type { RoosterMenuItemProps } from "@/app/types/sidebar";
 
-
 export const RoosterMenuItem: React.FC<RoosterMenuItemProps> = ({
   item,
   isActive,
@@ -14,7 +13,7 @@ export const RoosterMenuItem: React.FC<RoosterMenuItemProps> = ({
       cursor="pointer"
       onClick={onClick}
       bg="transparent"
-      _hover={{ bg: "#F7FAFC" }}
+      _hover={{ bg: "gray.50" }}
       borderRadius="8px"
       gap={3}
       position="relative"
@@ -26,19 +25,18 @@ export const RoosterMenuItem: React.FC<RoosterMenuItemProps> = ({
         top="0"
         bottom="0"
         width={isActive ? "2px" : "1px"}
-        bg={isActive ? "#5653FC" : "#E2E8F0"}
-        
+        bg={isActive ? "blue.600" : "gray.200"}
       />
-      
+
       <Icon
         as={item.icon}
         boxSize="20px"
-        color={isActive ? "#5653FC" : "#292D32"}
+        color={isActive ? "blue.600" : "gray.800"}
       />
       <Text
         fontSize="16px"
         fontWeight={isActive ? "600" : "500"}
-        color={isActive ? "#5653FC" : "#4E5D69"}
+        color={isActive ? "blue.600" : "gray.600"}
         flex={1}
       >
         {item.label}
