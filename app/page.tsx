@@ -4,7 +4,7 @@ import MainContent from './features/mainContent/MainContent'
 
 const page = () => {
   return (
-    <HStack w='full' h='100vh' gap={0} bg='white'>
+    <HStack w='full' h='full' gap={0} bg='white'>
       <Sidebar />
       <MainContent />
     </HStack>

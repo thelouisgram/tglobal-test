@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import React, { useState } from "react";
 import {
@@ -21,7 +20,6 @@ import {
 } from "iconsax-reactjs";
 import { LuSettings } from "react-icons/lu";
 import { IoChevronDown } from "react-icons/io5";
-
 
 import type { MenuItemType, SidebarProps } from "@/app/types/sidebar";
 import { RoosterMenuItem } from "./RoosterMenuItem";
@@ -82,7 +80,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   return (
     <Box
       w="260px"
-      h="full"
+      h="100vh"
       bg="white"
       py={6}
       overflowY="auto"
@@ -91,6 +89,10 @@ const Sidebar: React.FC<SidebarProps> = ({
       borderRight="1px solid"
       borderColor="#D9E5F2"
       flexShrink={0}
+      position="fixed"
+      left={0}
+      top={0}
+      zIndex={10}
     >
       <VStack align="stretch" gap={1}>
         {/* Logo Section */}

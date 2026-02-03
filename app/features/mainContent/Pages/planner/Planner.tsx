@@ -2,6 +2,7 @@ import PlannerHeader from './PlannerHeader'
 import { VStack } from '@chakra-ui/react'
 import PlannerTab from './PlannerTab'
 import CalendarToolBar from './carlendarToolBar/CalendarToolBar'
+import CalendarGrid from './CalendarGrid'
 
 const Planner = () => {
   return (
@@ -12,7 +13,9 @@ const Planner = () => {
         <PlannerTab />
         {/* Calendar Tool Bar */}
         <CalendarToolBar />
-    </VStack>
+        {/* Calendar Grid */}
+        <CalendarGrid />
+      </VStack>
   )
 }
 

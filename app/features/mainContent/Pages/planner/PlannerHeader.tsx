@@ -11,6 +11,7 @@ const PlannerHeader = () => {
       px="30px"
       borderBottom="1px solid"
       borderColor="#D9E5F2"
+      flexShrink={0}
     >
       <Text color="black" fontSize={24} fontWeight="bold">
         Planner
@@ -23,7 +24,6 @@ const PlannerHeader = () => {
           borderColor="#D9E5F2"
           bg="white"
           p="12px"
-          h="38px"
           _hover={{ bg: "gray.50" }}
           color={"#4E5D69"}
         >
@@ -40,11 +40,10 @@ const PlannerHeader = () => {
           borderColor="#D9E5F2"
           bg="white"
           p="12px"
-          h="38px"
           _hover={{ bg: "gray.50" }}
           color={"#4E5D69"}
         >
-          <IoAdd width={16} height={16} color="#4E5D69"/>
+          <IoAdd width={16} height={16} color={"#4E5D69"}/>
           <Text fontWeight="semibold" fontSize="14px">
             Nieuw
           </Text>
