@@ -25,6 +25,8 @@ const PlannerHeader = () => {
           bg="white"
           p="12px"
           _hover={{ bg: "gray.50" }}
+          _active={{ transform: "scale(0.98)" }}
+          transition="all 0.2s"
           color={"#4E5D69"}
         >
           <IoChevronDown size={16} color="#4E5D69" />
@@ -41,6 +43,8 @@ const PlannerHeader = () => {
           bg="white"
           p="12px"
           _hover={{ bg: "gray.50" }}
+          _active={{ transform: "scale(0.98)" }}
+          transition="all 0.2s"
           color={"#4E5D69"}
         >
           <IoAdd width={16} height={16} color={"#4E5D69"} />

@@ -20,7 +20,18 @@ const Planner = () => {
   };
 
   return (
-    <VStack w={"full"} h={"full"} gap="20px">
+    <VStack
+      w={"full"}
+      h={"full"}
+      gap="20px"
+      animation="fadeIn 0.5s ease-out"
+      css={{
+        "@keyframes fadeIn": {
+          from: { opacity: 0, transform: "translateY(10px)" },
+          to: { opacity: 1, transform: "translateY(0)" },
+        },
+      }}
+    >
       {/* Header */}
       <PlannerHeader />
       {/* Tab */}

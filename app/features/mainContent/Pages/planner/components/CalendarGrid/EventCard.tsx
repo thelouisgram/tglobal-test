@@ -32,6 +32,7 @@ export const EventCard = ({ event, position }: EventCardProps) => {
         bg={colors.bg}
         cursor="pointer"
         transition="all 0.2s"
+        _hover={{ shadow: "md", transform: "translateY(-1px)", zIndex: 2 }}
         zIndex={1}
         overflow="hidden"
         onClick={(e) => {

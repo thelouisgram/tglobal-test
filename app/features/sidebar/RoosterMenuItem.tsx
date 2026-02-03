@@ -17,6 +17,7 @@ export const RoosterMenuItem: React.FC<RoosterMenuItemProps> = ({
       borderRadius="8px"
       gap={3}
       position="relative"
+      transition="all 0.2s"
     >
       {/* Vertical indicator line */}
       <Box

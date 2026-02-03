@@ -14,6 +14,9 @@ export const MenuItem: React.FC<MenuItemComponentProps> = ({
       onClick={onClick}
       gap={3}
       position="relative"
+      transition="all 0.2s"
+      _hover={{ bg: "gray.50" }}
+      borderRadius="8px"
     >
       <Icon as={item.icon} boxSize="20px" color="gray.800" />
       <Text

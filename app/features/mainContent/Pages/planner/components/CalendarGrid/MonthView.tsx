@@ -70,9 +70,9 @@ const MonthView = ({ selectedDate }: MonthViewProps) => {
               borderRight="1px solid #D9E5F2"
               borderBottom="1px solid #D9E5F2"
               bg={!isCurrentMonth ? "#F9FAFB" : "white"}
-              _hover={{ bg: "#F3F4FB" }}
+              _hover={{ bg: "#f0f2ff", shadow: "inset 0 0 0 1px #5653FC33" }}
               cursor="pointer"
-              transition="background 0.2s"
+              transition="all 0.2s ease-in-out"
             >
               <VStack align="flex-end" w="full">
                 <Box
