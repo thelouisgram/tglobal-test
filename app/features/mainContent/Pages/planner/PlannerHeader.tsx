@@ -1,5 +1,5 @@
 import { HStack, Button, Text } from "@chakra-ui/react";
-import { ArrowDown2, Add } from "iconsax-reactjs";
+import { IoChevronDown, IoAdd } from "react-icons/io5";
 
 const PlannerHeader = () => {
   return (
@@ -9,7 +9,6 @@ const PlannerHeader = () => {
       h="70px"
       w="full"
       px="30px"
-      py="16px"
       borderBottom="1px solid"
       borderColor="#D9E5F2"
     >
@@ -24,13 +23,14 @@ const PlannerHeader = () => {
           borderColor="#D9E5F2"
           bg="white"
           p="12px"
-          h="auto"
-          fontWeight="semibold"
-          fontSize="14px"
+          h="38px"
           _hover={{ bg: "gray.50" }}
+          color={"#4E5D69"}
         >
-          <ArrowDown2 size={18} />
-          Open Days
+          <IoChevronDown size={16} color="#4E5D69" />
+          <Text fontWeight="semibold" fontSize="14px">
+            Open Days
+          </Text>
         </Button>
 
         {/* Nieuw Button */}
@@ -40,14 +40,15 @@ const PlannerHeader = () => {
           borderColor="#D9E5F2"
           bg="white"
           p="12px"
-          h="auto"
-          fontWeight="semibold"
-          fontSize="14px"
+          h="38px"
           _hover={{ bg: "gray.50" }}
+          color={"#4E5D69"}
         >
-          <Add size={18} />
-          Nieuw
-          <ArrowDown2 size={18} />
+          <IoAdd width={16} height={16} color="#4E5D69"/>
+          <Text fontWeight="semibold" fontSize="14px">
+            Nieuw
+          </Text>
+          <IoChevronDown width={16} height={16} />
         </Button>
       </HStack>
     </HStack>

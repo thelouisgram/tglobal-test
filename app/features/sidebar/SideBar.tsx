@@ -14,13 +14,14 @@ import {
 import {
   Document,
   CalendarEdit,
-  Setting2,
   DocumentText,
   Notepad2,
   Book,
-  ArrowDown2,
   HamburgerMenu,
 } from "iconsax-reactjs";
+import { LuSettings } from "react-icons/lu";
+import { IoChevronDown } from "react-icons/io5";
+
 
 import type { MenuItemType, SidebarProps } from "@/app/types/sidebar";
 import { RoosterMenuItem } from "./RoosterMenuItem";
@@ -57,7 +58,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   const roosterSubItems: MenuItemType[] = [
     { id: "mijn-rooster", label: "Mijn Rooster", icon: DocumentText },
     { id: "planner", label: "Planner", icon: CalendarEdit, isActive: true },
-    { id: "instellingen", label: "Instellingen", icon: Setting2 },
+    { id: "instellingen", label: "Instellingen", icon: LuSettings },
   ];
 
   const otherMenuItems: MenuItemType[] = [
@@ -154,7 +155,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                     Rooster
                   </Text>
                   <Icon
-                    as={ArrowDown2}
+                    as={IoChevronDown}
                     boxSize="20px"
                     color="gray.800"
                     transform={

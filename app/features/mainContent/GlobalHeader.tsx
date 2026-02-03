@@ -1,6 +1,9 @@
 import { HStack, Button, VStack, Text, Box } from "@chakra-ui/react";
-import { Setting2, Notification, ArrowDown2 } from "iconsax-reactjs";
 import Image from "next/image";
+import { LuSettings } from "react-icons/lu";
+import { IoChevronDown } from "react-icons/io5";
+import { FiBell } from "react-icons/fi";
+
 
 const GlobalHeader = () => {
   return (
@@ -49,7 +52,7 @@ const GlobalHeader = () => {
           bg="#F6FAFD"
           p={0}
         >
-          <Setting2 size="24px" color="black" />
+          <LuSettings size="24px" color="black" />
         </Button>
         {/* Notification Button */}
         <Button
@@ -64,10 +67,10 @@ const GlobalHeader = () => {
           bg="#F6FAFD"
           p={0}
         >
-          <Notification size="24px" color="black" />
+          <FiBell size="24px" color="black" strokeWidth={2} />
           <Box
             position="absolute"
-            top="10px"
+            top="8px"
             right="10px"
             width="8px"
             height="8px"
@@ -87,7 +90,7 @@ const GlobalHeader = () => {
           </Text>
         </VStack>
         <Button pl="16px">
-          <ArrowDown2 width={20} height={20} color="gray" />
+          <IoChevronDown width={20} height={20} color="gray" />
         </Button>
       </HStack>
     </HStack>

@@ -6,7 +6,7 @@ const PlannerTab = () => {
   const [activeTab, setActiveTab] = useState<"live" | "planner">("live");
   return (
     // Tabs
-    <Box p="32px" pt="20px" pb="14px" pl="28px" w="full">
+    <Box pr="32px" pl="28px" w="full">
       {/* Tab Container */}
       <HStack
         w="full"
