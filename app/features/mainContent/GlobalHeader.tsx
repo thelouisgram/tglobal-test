@@ -2,14 +2,14 @@ import { HStack, Button, VStack, Text, Box } from "@chakra-ui/react";
 import { Setting2, Notification, ArrowDown2 } from "iconsax-reactjs";
 import Image from "next/image";
 
-const Header = () => {
+const GlobalHeader = () => {
   return (
     // Header
     <HStack
       h="100px"
       w="full"
       borderBottom="1px solid"
-      borderColor="gray.200"
+      borderColor="#D9E5F2"
       justifyContent="end"
       p="24px"
       gap={66}
@@ -94,4 +94,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default GlobalHeader;

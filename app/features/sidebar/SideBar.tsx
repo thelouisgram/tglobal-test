@@ -88,7 +88,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       fontSize="16px"
       fontWeight="semibold"
       borderRight="1px solid"
-      borderColor="gray.200"
+      borderColor="#D9E5F2"
       flexShrink={0}
     >
       <VStack align="stretch" gap={1}>
@@ -108,15 +108,15 @@ const Sidebar: React.FC<SidebarProps> = ({
             border="1px solid"
             borderColor="gray.100"
             borderRadius="8px"
-            width="36px"
-            height="36px"
+            boxSize="36px"
             display="flex"
             alignItems="center"
             justifyContent="center"
             cursor="pointer"
             _hover={{ bg: "gray.50" }}
+            p={0}
           >
-            <HamburgerMenu size="24px" color="gray.800" />
+            <HamburgerMenu size="24px" color="gray" />
           </Button>
         </HStack>
 
