@@ -1,15 +1,55 @@
-import { Box, Grid, GridItem, HStack, VStack, Text } from "@chakra-ui/react";
-import React from "react";
+import { Box, Grid, GridItem, Text } from "@chakra-ui/react";
+import { useState } from "react";
+import { TimeColumn } from "./components/TimeColumn";
+import { RoomColumn } from "./components/RoomColumn";
 
-const CalendarGrid = () => {
-  const timeSlots = ["11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30"];
-   
+const CalendarGrid = ({ selectedDate }: { selectedDate: Date }) => {
+  const timeSlots = [
+    "11:00",
+    "11:30",
+    "12:00",
+    "12:30",
+    "13:00",
+    "13:30",
+    "14:00",
+    "14:30",
+    "15:00",
+    "15:30",
+    "16:00",
+    "16:30",
+    "17:00",
+    "17:30",
+    "18:00",
+  ];
+
   const columns = [
     "Behandelingkamer1",
     "Management",
     "Bijzonderheden-Verlof-Cursus-BZV",
     "Financien",
   ];
+
+  const selectedDateStr = selectedDate.toISOString().split("T")[0];
+
+  const [isSeeMoreOpen, setIsSeeMoreOpen] = useState(false);
+  const [selectedSeeMoreId, setSelectedSeeMoreId] = useState<string | null>(
+    null,
+  );
+  const [selectedEvents, setSelectedEvents] = useState<any[]>([]);
+
+  const handleSeeMoreOpenChange = (open: boolean) => {
+    setIsSeeMoreOpen(open);
+    if (!open) {
+      setSelectedSeeMoreId(null);
+      setSelectedEvents([]);
+    }
+  };
+
+  const handleSeeMoreTriggerClick = (id: string, events: any[]) => {
+    setSelectedSeeMoreId(id);
+    setSelectedEvents(events);
+    setIsSeeMoreOpen(true);
+  };
 
   return (
     <Box w="full" h="full" bg="white" px="30px" paddingBottom="30px">
@@ -22,7 +62,7 @@ const CalendarGrid = () => {
         flexShrink={0}
         gap={"0"}
       >
-        {/* Header Row */}
+        {/* Top-Left Corner */}
         <GridItem
           bg="#EBEBFF"
           borderRight="1px solid #E5E7EB"
@@ -32,18 +72,13 @@ const CalendarGrid = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
+          h="44px"
         >
-          <Text
-            fontSize="14px"
-            color="#5653FC"
-            h={"44px"}
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-          >
+          <Text fontSize="14px" color="#5653FC">
             Days
           </Text>
         </GridItem>
+
         {/* Column Headers */}
         {columns.map((col, idx) => (
           <GridItem
@@ -56,54 +91,31 @@ const CalendarGrid = () => {
             display="flex"
             alignItems="center"
             justifyContent="center"
+            h="44px"
           >
-            <Text
-              fontSize="14px"
-              color="#5D636F"
-              lineClamp={1}
-              title={col}
-              h={"44px"}
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-            >
+            <Text fontSize="14px" color="#5D636F" lineClamp={1} title={col}>
               {col}
             </Text>
           </GridItem>
         ))}
 
-        {/* Time Slots and Calendar Grid */}
-        {timeSlots.map((time, timeIdx) => (
-          <React.Fragment key={timeIdx}>
-            {/* Time Column */}
-            <GridItem
-              key={`time-${timeIdx}`}
-              bg="white"
-              borderRight="1px solid #E5E7EB"
-              borderBottom="1px solid #E5E7EB"
-              h='120px'
-              px='16px'
-              py='8px'
-            >
-              <Text fontSize="14px" color="black" fontWeight="medium">
-                {time}
-              </Text>
-            </GridItem>
+        {/* Time Labels Column */}
+        <TimeColumn timeSlots={timeSlots} />
 
-            {/* Calendar Columns */}
-            {columns.map((_, colIdx) => (
-              <GridItem
-                key={`cell-${timeIdx}-${colIdx}`}
-                borderRight="1px solid #E5E7EB"
-                borderBottom="1px solid #E5E7EB"
-                h='120px'
-                position="relative"
-                bg="white"
-                p='0'
-              >
-              </GridItem>
-            ))}
-          </React.Fragment>
+        {/* Room Columns */}
+        {columns.map((room, colIdx) => (
+          <RoomColumn
+            key={colIdx}
+            room={room}
+            colIdx={colIdx}
+            selectedDateStr={selectedDateStr}
+            selectedDate={selectedDate}
+            timeSlots={timeSlots}
+            isSeeMoreOpen={isSeeMoreOpen}
+            selectedSeeMoreId={selectedSeeMoreId}
+            onSeeMoreOpenChange={handleSeeMoreOpenChange}
+            onSeeMoreTriggerClick={handleSeeMoreTriggerClick}
+          />
         ))}
       </Grid>
     </Box>

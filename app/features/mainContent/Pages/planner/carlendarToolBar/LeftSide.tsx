@@ -2,13 +2,18 @@
 import React from "react";
 import { HStack, Button, Text } from "@chakra-ui/react";
 import { formatDate } from "@/app/utils/planner/planner";
-import { useState, useRef } from "react";
+import { useRef } from "react";
 
-const LeftSide = () => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const dateInputRef = useRef<HTMLInputElement>(null);
-
+export const LeftSide = ({
+  selectedDate,
+  setSelectedDate,
+}: {
+  selectedDate: Date;
+  setSelectedDate: (date: Date) => void;
+}) => {
   const { day, date, month, year } = formatDate(selectedDate);
+  const dateInputRef = useRef<HTMLInputElement>(null);
+  // handle date change
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedDate(new Date(e.target.value));
   };
@@ -52,4 +57,3 @@ const LeftSide = () => {
     </HStack>
   );
 };
-export default LeftSide;

@@ -3,8 +3,11 @@ import { VStack } from '@chakra-ui/react'
 import PlannerTab from './PlannerTab'
 import CalendarToolBar from './carlendarToolBar/CalendarToolBar'
 import CalendarGrid from './CalendarGrid'
+import { useState } from "react";
 
 const Planner = () => {
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  
   return (
     <VStack w={'full'} h={'full'} gap='20px'>
       {/* Header */}
@@ -12,9 +15,9 @@ const Planner = () => {
         {/* Tab */}
         <PlannerTab />
         {/* Calendar Tool Bar */}
-        <CalendarToolBar />
+        <CalendarToolBar selectedDate={selectedDate} setSelectedDate={setSelectedDate}/>
         {/* Calendar Grid */}
-        <CalendarGrid />
+        <CalendarGrid selectedDate={selectedDate}/>
       </VStack>
   )
 }
