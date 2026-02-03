@@ -36,6 +36,7 @@ const doRangesOverlap = (
 export const calculateLayoutForRoom = (events: Event[]): RenderItem[] => {
   if (events.length === 0) return [];
 
+  // Sort events by start time, then by duration (longest first)
   const sortedEvents = [...events].sort((a, b) => {
     const startA = parseTime(a.startTime);
     const startB = parseTime(b.startTime);
@@ -83,6 +84,7 @@ export const calculateLayoutForRoom = (events: Event[]): RenderItem[] => {
   return resultItems;
 };
 
+// Process a cluster of overlapping events to determine lane assignments
 const processCluster = (cluster: Event[]): RenderItem[] => {
   
   const lanes: Event[][] = [[], [], []]; 
@@ -108,6 +110,7 @@ const processCluster = (cluster: Event[]): RenderItem[] => {
 
   const items: RenderItem[] = [];
 
+  // Create position for an event based on its lane and time
   const createPosition = (laneIndex: number, event: Event): RenderPosition => {
     const start = parseTime(event.startTime);
     const end = parseTime(event.endTime);
@@ -191,6 +194,7 @@ const processCluster = (cluster: Event[]): RenderItem[] => {
   return items;
 };
 
+// Create a "See More" item for overflow events
 const createSeeMoreItem = (overflowEvents: Event[], allClusterEvents: Event[]): RenderItem => {
     let minStart = Infinity;
     overflowEvents.forEach(e => {
@@ -204,7 +208,7 @@ const createSeeMoreItem = (overflowEvents: Event[], allClusterEvents: Event[]): 
 
     return {
         type: 'seemore',
-        events: allClusterEvents, // Include all events in the cluster as requested
+        events: allClusterEvents, 
         overflowCount: overflowEvents.length,
         id: `seemore-${overflowEvents[0].id}`,
         position: {
@@ -215,5 +219,7 @@ const createSeeMoreItem = (overflowEvents: Event[], allClusterEvents: Event[]): 
         }
     };
 };
+
+export default calculateLayoutForRoom;
 
 
