@@ -12,13 +12,12 @@ import {
 } from "@chakra-ui/react";
 import {
   Document,
-  CalendarEdit,
   DocumentText,
   Notepad2,
-  Book,
   HamburgerMenu,
+  Stickynote,
+  MenuBoard
 } from "iconsax-reactjs";
-import { LuSettings } from "react-icons/lu";
 import { IoChevronDown } from "react-icons/io5";
 
 import type { MenuItemType, SidebarProps } from "@/app/types/sidebar";
@@ -55,19 +54,19 @@ const Sidebar: React.FC<SidebarProps> = ({
 
   const roosterSubItems: MenuItemType[] = [
     { id: "mijn-rooster", label: "Mijn Rooster", icon: DocumentText },
-    { id: "planner", label: "Planner", icon: CalendarEdit, isActive: true },
-    { id: "instellingen", label: "Instellingen", icon: LuSettings },
+    { id: "planner", label: "Planner", icon: Stickynote, isActive: true },
+    { id: "instellingen", label: "Instellingen", icon: Stickynote },
   ];
 
   const otherMenuItems: MenuItemType[] = [
-    { id: "protocols", label: "My to do Protocols", icon: DocumentText },
+    { id: "protocols", label: "My to do Protocols", icon: Stickynote },
     {
       id: "document-management",
       label: "Document Management",
       icon: Document,
     },
     { id: "department-news", label: "Department News", icon: Notepad2 },
-    { id: "knowledge-base", label: "Knowledge Base", icon: Book },
+    { id: "knowledge-base", label: "Knowledge Base", icon: MenuBoard },
     { id: "general-news", label: "General News", icon: DocumentText },
   ];
 

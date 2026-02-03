@@ -9,13 +9,18 @@ import { PiUsersThree } from "react-icons/pi";
 import { LuFilter } from "react-icons/lu";
 import { LuPlus } from "react-icons/lu";
 import DropDown from "./DropDown";
+import { addDays } from "date-fns";
 
 const RightSide = ({
   viewType,
   setViewType,
+  selectedDate,
+  setSelectedDate,
 }: {
   viewType: string;
   setViewType: (view: string) => void;
+  selectedDate: Date;
+  setSelectedDate: (date: Date) => void;
 }) => {
   // Dropdown
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -24,6 +29,18 @@ const RightSide = ({
   const handleOptionClick = (option: string) => {
     setViewType(option);
     setIsDropdownOpen(false);
+  };
+
+  const handlePrevDay = () => {
+    setSelectedDate(addDays(selectedDate, -1));
+  };
+
+  const handleNextDay = () => {
+    setSelectedDate(addDays(selectedDate, 1));
+  };
+
+  const handleToday = () => {
+    setSelectedDate(new Date());
   };
 
   return (
@@ -58,7 +75,7 @@ const RightSide = ({
         color={"#242424"}
       >
         {/* Back button */}
-        <HStack px="8px" py="10px" cursor="pointer">
+        <HStack px="8px" py="10px" cursor="pointer" onClick={handlePrevDay}>
           <IoChevronBack size={16} color="#4E5D69" />
         </HStack>
         {/* Current day text */}
@@ -71,11 +88,14 @@ const RightSide = ({
           alignItems="center"
           fontSize={"14px"}
           fontWeight={"semibold"}
+          cursor="pointer"
+          onClick={handleToday}
+          _hover={{ bg: "gray.50" }}
         >
           Current Day
         </Text>
         {/* Forward button */}
-        <HStack px="8px" py="10px" cursor="pointer">
+        <HStack px="8px" py="10px" cursor="pointer" onClick={handleNextDay}>
           <IoChevronForward size={16} color="#4E5D69" />
         </HStack>
       </HStack>

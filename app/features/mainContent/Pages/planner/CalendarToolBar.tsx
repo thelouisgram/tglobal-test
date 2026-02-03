@@ -18,7 +18,12 @@ const CalendarToolBar = ({
       {/* Left Side */}
       <LeftSide selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
       {/* Right Side */}
-      <RightSide viewType={viewType} setViewType={setViewType} />
+      <RightSide
+        viewType={viewType}
+        setViewType={setViewType}
+        selectedDate={selectedDate}
+        setSelectedDate={setSelectedDate}
+      />
     </HStack>
   );
 };
