@@ -26,7 +26,7 @@ const GlobalHeader = () => {
           justifyContent="center"
           cursor="pointer"
           _hover={{ bg: "gray.50" }}
-          bg="gray.50"
+          bg="#F6FAFD"
           p={0}
         >
           <Image
@@ -61,7 +61,7 @@ const GlobalHeader = () => {
           justifyContent="center"
           cursor="pointer"
           _hover={{ bg: "gray.50" }}
-          bg="gray.50"
+          bg="#F6FAFD"
           p={0}
         >
           <Notification size="24px" color="black" />

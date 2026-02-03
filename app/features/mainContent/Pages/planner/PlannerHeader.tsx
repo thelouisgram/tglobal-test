@@ -1,8 +1,9 @@
 import { HStack, Button, Text } from "@chakra-ui/react";
 import { ArrowDown2, Add } from "iconsax-reactjs";
 
-const Planner = () => {
+const PlannerHeader = () => {
   return (
+    // planner header
     <HStack
       justifyContent="space-between"
       h="70px"
@@ -34,7 +35,7 @@ const Planner = () => {
 
         {/* Nieuw Button */}
         <Button
-                   borderRadius="8px"
+          borderRadius="8px"
           border="1px solid"
           borderColor="#D9E5F2"
           bg="white"
@@ -53,4 +54,4 @@ const Planner = () => {
   );
 };
 
-export default Planner;
+export default PlannerHeader;

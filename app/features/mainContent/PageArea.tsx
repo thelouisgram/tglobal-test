@@ -1,5 +1,5 @@
 import { VStack } from '@chakra-ui/react'
-import Planner from './Pages/Planner'
+import Planner from './Pages/planner/Planner'
 
 const PageArea = ({activePage}: {activePage: string}) => {
   return (
