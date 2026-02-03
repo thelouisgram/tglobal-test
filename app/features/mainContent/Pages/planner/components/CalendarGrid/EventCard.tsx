@@ -1,5 +1,5 @@
 import { Box, HStack, Text, VStack } from "@chakra-ui/react";
-import { getInitials, getEventColor } from "./utils";
+import { getInitials, getEventColor } from "../utils";
 
 interface EventCardProps {
   event: any;

@@ -1,7 +1,7 @@
 import { Box, Grid, GridItem, Text } from "@chakra-ui/react";
 import { useState } from "react";
-import { TimeColumn } from "./components/TimeColumn";
-import { RoomColumn } from "./components/RoomColumn";
+import { TimeColumn } from "./components/CalendarGrid/TimeColumn";
+import { RoomColumn } from "./components/CalendarGrid/RoomColumn";
 
 const CalendarGrid = ({ selectedDate }: { selectedDate: Date }) => {
   const timeSlots = [

@@ -1,7 +1,7 @@
 import PlannerHeader from './PlannerHeader'
 import { VStack } from '@chakra-ui/react'
 import PlannerTab from './PlannerTab'
-import CalendarToolBar from './carlendarToolBar/CalendarToolBar'
+import CalendarToolBar from './CalendarToolBar'
 import CalendarGrid from './CalendarGrid'
 import { useState } from "react";
 

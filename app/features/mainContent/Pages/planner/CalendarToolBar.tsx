@@ -1,6 +1,6 @@
 import { HStack } from "@chakra-ui/react";
-import { LeftSide } from "./LeftSide";
-import RightSide from "./RightSide";
+import  LeftSide  from "./components/calendarToolBar/LeftSide";
+import RightSide from "./components/calendarToolBar/RightSide";  
 
 const CalendarToolBar = ({
   selectedDate,

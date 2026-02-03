@@ -4,7 +4,7 @@ import { HStack, Button, Text } from "@chakra-ui/react";
 import { formatDate } from "@/app/utils/planner/planner";
 import { useRef } from "react";
 
-export const LeftSide = ({
+const LeftSide = ({
   selectedDate,
   setSelectedDate,
 }: {
@@ -57,3 +57,6 @@ export const LeftSide = ({
     </HStack>
   );
 };
+
+export default LeftSide;
+  

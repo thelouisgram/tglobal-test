@@ -12,7 +12,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { LuX } from "react-icons/lu";
-import { getInitials, getEventColor, groupEventsByHour } from "./utils";
+import { getInitials, getEventColor, groupEventsByHour } from "../utils";
 
 interface SeeMoreDialogProps {
   item: any;
@@ -93,7 +93,11 @@ export const SeeMoreDialog = ({
                 day: "numeric",
               })}
             </DialogTitle>
-            <DialogCloseTrigger position="static" color="gray.500" _hover={{ color: "black" }}>
+            <DialogCloseTrigger
+              position="static"
+              color="gray.500"
+              _hover={{ color: "black" }}
+            >
               <LuX size="20px" />
             </DialogCloseTrigger>
           </DialogHeader>
