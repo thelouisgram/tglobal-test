@@ -133,7 +133,7 @@ export const SeeMoreDialog = ({
               maxH="60vh"
               overflowY="auto"
               px={4}
-              pb={4}
+              p={"16px"}
               css={{
                 "&::-webkit-scrollbar": {
                   width: "8px",
@@ -156,19 +156,19 @@ export const SeeMoreDialog = ({
             >
               {Object.entries(groupedEvents).map(
                 ([startTime, events]: [string, Event[]], groupIndex) => (
-                  <Box key={startTime} mt={groupIndex === 0 ? 4 : 6}>
+                  <Box key={startTime}>
                     {/* Time Header */}
                     <Text
                       fontWeight="semibold"
                       fontSize="16px"
-                      mb={2}
                       color="#242424"
+                      mb={"16px"}
                     >
                       {startTime}
                     </Text>
 
                     {/* Events with same start time */}
-                    <VStack align="stretch" gap="8px">
+                    <VStack align="stretch" gap="8px" mb={"16px"}>
                       {events.map((event) => {
                         const colors = getEventColor(event.color);
                         return (
