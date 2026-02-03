@@ -1,5 +1,11 @@
 import { Provider } from "@/components/chakra-ui/provider";
 import { Manrope, Plus_Jakarta_Sans } from "next/font/google";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "TGLOBAL Roster System",
+  description: "Frontend Developer Assignment - Roster System",
+};
 
 const manrope = Manrope({
   subsets: ["latin"],
