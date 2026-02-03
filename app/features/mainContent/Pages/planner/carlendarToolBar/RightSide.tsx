@@ -1,14 +1,27 @@
-import { Box, Button, HStack, Text } from "@chakra-ui/react";
+import { Box, Button, HStack, Text, VStack } from "@chakra-ui/react";
+import { useState } from "react";
 import {
   IoChevronBack,
   IoChevronDown,
   IoChevronForward,
-  IoAdd,
 } from "react-icons/io5";
 import { PiUsersThree } from "react-icons/pi";
 import { LuFilter } from "react-icons/lu";
+import { LuPlus } from "react-icons/lu";
+import DropDown from "./DropDown";
 
 const RightSide = () => {
+  // Dropdown
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  // Selected option
+  const [selectedOption, setSelectedOption] = useState("This Day");
+
+  // Handle option click
+  const handleOptionClick = (option: string) => {
+    setSelectedOption(option);
+    setIsDropdownOpen(false);
+  };
+
   return (
     <HStack gap={"8px"}>
       {/* Users button */}
@@ -40,9 +53,11 @@ const RightSide = () => {
         gap={0}
         color={"black"}
       >
+        {/* Back button */}
         <HStack px="8px" py="10px" cursor="pointer">
           <IoChevronBack size={16} color="#4E5D69" />
         </HStack>
+        {/* Current day text */}
         <Text
           borderLeft={"1px solid #D9E5F2"}
           borderRight={"1px solid #D9E5F2"}
@@ -55,32 +70,48 @@ const RightSide = () => {
         >
           Current Day
         </Text>
+        {/* Forward button */}
         <HStack px="8px" py="10px" cursor="pointer">
           <IoChevronForward size={16} color="#4E5D69" />
         </HStack>
       </HStack>
       {/* This day button */}
-      <HStack
-        p="12px"
-        border={"1px solid #D9E5F2"}
-        borderRadius={"8px"}
-        h={"38px"}
-        w={"auto"}
-        gap={"8px"}
-        color={"black"}
-      >
-        <Box
-          bg={"#0CA740"}
-          w={"10px"}
-          h={"10px"}
-          borderRadius={"full"}
-          alignItems={"center"}
-        />
-        <Text fontSize={"14px"} fontWeight={"semibold"}>
-          This Day
-        </Text>
-        <IoChevronDown size={16} color="#4E5D69" />
-      </HStack>
+      <Box position={"relative"}>
+        <HStack
+          p="12px"
+          border={"1px solid #D9E5F2"}
+          borderRadius={"8px"}
+          h={"38px"}
+          w={"auto"}
+          gap={"8px"}
+          color={"black"}
+          cursor="pointer"
+          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+        >
+          <Box
+            bg={"#0CA740"}
+            w={"10px"}
+            h={"10px"}
+            borderRadius={"full"}
+            alignItems={"center"}
+          />
+          <Text fontSize={"14px"} fontWeight={"semibold"}>
+            {selectedOption}
+          </Text>
+          <IoChevronDown 
+            size={16} 
+            color="#4E5D69"
+            style={{
+              transform: isDropdownOpen ? "rotate(180deg)" : "rotate(0deg)",
+              transition: "transform 0.2s"
+            }}
+          />
+        </HStack>
+        {/* Dropdown */}
+        {isDropdownOpen && (
+         <DropDown handleOptionClick={handleOptionClick} />
+        )}
+      </Box>
       {/* Publish all button */}
       <HStack
         p="12px"
@@ -89,8 +120,9 @@ const RightSide = () => {
         h={"38px"}
         w={"auto"}
         color={"black"}
+        cursor="pointer"
       >
-        <Text fontSize={"14px"} fontWeight={"semibold"}>
+        <Text fontSize={"14px"} fontWeight={"medium"}>
           Publish All
         </Text>
       </HStack>
@@ -103,8 +135,9 @@ const RightSide = () => {
         w={"auto"}
         color={"black"}
         gap={"8px"}
+        cursor="pointer"
       >
-        <IoAdd size={20} />
+        <LuPlus size={18} color="#4E5D69" />
         <Text fontSize={"14px"} fontWeight={"semibold"}>
           Lock Shift
         </Text>
