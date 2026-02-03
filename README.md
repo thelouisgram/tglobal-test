@@ -27,7 +27,7 @@ This project is a functional **Roster System** built for the Tactology Global fr
 ### 1. Clone the repository
 
 ```bash
-git clone <repository-url>
+git clone <https://github.com/thelouisgram/tglobal-test>
 cd tglobal-test
 ```
 
