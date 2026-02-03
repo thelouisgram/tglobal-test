@@ -13,7 +13,7 @@ const PlannerHeader = () => {
       borderColor="#D9E5F2"
       flexShrink={0}
     >
-      <Text color="black" fontSize={24} fontWeight="bold">
+      <Text color="#242424" fontSize={24} fontWeight="bold">
         Planner
       </Text>
       <HStack gap={4}>
@@ -43,7 +43,7 @@ const PlannerHeader = () => {
           _hover={{ bg: "gray.50" }}
           color={"#4E5D69"}
         >
-          <IoAdd width={16} height={16} color={"#4E5D69"}/>
+          <IoAdd width={16} height={16} color={"#4E5D69"} />
           <Text fontWeight="semibold" fontSize="14px">
             Nieuw
           </Text>

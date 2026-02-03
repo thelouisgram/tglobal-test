@@ -2,6 +2,7 @@ import { Box, Grid, GridItem, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { TimeColumn } from "./components/CalendarGrid/TimeColumn";
 import { RoomColumn } from "./components/CalendarGrid/RoomColumn";
+import { Event } from "@/app/types/planner";
 
 const CalendarGrid = ({ selectedDate }: { selectedDate: Date }) => {
   const timeSlots = [
@@ -35,7 +36,7 @@ const CalendarGrid = ({ selectedDate }: { selectedDate: Date }) => {
   const [selectedSeeMoreId, setSelectedSeeMoreId] = useState<string | null>(
     null,
   );
-  const [selectedEvents, setSelectedEvents] = useState<any[]>([]);
+  const [selectedEvents, setSelectedEvents] = useState<Event[]>([]);
 
   const handleSeeMoreOpenChange = (open: boolean) => {
     setIsSeeMoreOpen(open);
@@ -45,7 +46,7 @@ const CalendarGrid = ({ selectedDate }: { selectedDate: Date }) => {
     }
   };
 
-  const handleSeeMoreTriggerClick = (id: string, events: any[]) => {
+  const handleSeeMoreTriggerClick = (id: string, events: Event[]) => {
     setSelectedSeeMoreId(id);
     setSelectedEvents(events);
     setIsSeeMoreOpen(true);

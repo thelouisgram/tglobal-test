@@ -4,7 +4,6 @@ import { LuSettings } from "react-icons/lu";
 import { IoChevronDown } from "react-icons/io5";
 import { FiBell } from "react-icons/fi";
 
-
 const GlobalHeader = () => {
   return (
     // Header
@@ -52,7 +51,7 @@ const GlobalHeader = () => {
           bg="#F6FAFD"
           p={0}
         >
-          <LuSettings size="24px" color="black" />
+          <LuSettings size="24px" color="#242424" />
         </Button>
         {/* Notification Button */}
         <Button
@@ -67,7 +66,7 @@ const GlobalHeader = () => {
           bg="#F6FAFD"
           p={0}
         >
-          <FiBell size="24px" color="black" strokeWidth={2} />
+          <FiBell size="24px" color="#242424" strokeWidth={2} />
           <Box
             position="absolute"
             top="8px"

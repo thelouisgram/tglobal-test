@@ -34,7 +34,8 @@ const LeftSide = ({
         cursor={"pointer"}
       >
         {/* Date */}
-        {day} <span style={{ color: "black", fontWeight: "600" }}>{date}</span>
+        {day}{" "}
+        <span style={{ color: "#242424", fontWeight: "600" }}>{date}</span>
         {/* Date Input */}
         <input
           ref={dateInputRef}
@@ -51,7 +52,7 @@ const LeftSide = ({
         />
       </Button>
       {/* Month and Year */}
-      <Text color="black" fontSize="20px" fontWeight="semibold">
+      <Text color="#242424" fontSize="20px" fontWeight="semibold">
         {month}, {year}
       </Text>
     </HStack>
@@ -59,4 +60,3 @@ const LeftSide = ({
 };
 
 export default LeftSide;
-  

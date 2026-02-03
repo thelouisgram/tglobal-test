@@ -1,3 +1,4 @@
+import { Event } from "@/app/types/planner";
 
 export const getInitials = (name: string): string => {
   const parts = name.split(" ").filter((p) => p.length > 0);
@@ -16,9 +17,9 @@ export const getEventColor = (color: "orange" | "green" | "gold" = "orange") => 
   return color in colors ? colors[color] : colors.orange;
 };
 
-export const groupEventsByHour = (events: any[] = []) => {
+export const groupEventsByHour = (events: Event[] = []) => {
   if (!events) return {};
-  return events.reduce((acc: Record<string, any[]>, event) => {
+  return events.reduce((acc: Record<string, Event[]>, event) => {
     const hour = event.startTime?.split(":")[0] + ":00" || "00:00";
     if (!acc[hour]) acc[hour] = [];
     acc[hour].push(event);

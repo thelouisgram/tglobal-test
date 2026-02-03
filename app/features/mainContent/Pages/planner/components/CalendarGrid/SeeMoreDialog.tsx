@@ -1,3 +1,5 @@
+import { Event } from "@/app/types/planner";
+import { RenderItem } from "@/app/utils/planner/eventLayout";
 import {
   Box,
   DialogRoot,
@@ -12,10 +14,10 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { LuX } from "react-icons/lu";
-import { getInitials, getEventColor, groupEventsByHour } from "../utils";
+import { getInitials, getEventColor } from "../utils";
 
 interface SeeMoreDialogProps {
-  item: any;
+  item: RenderItem;
   isOpen: boolean;
   onOpenChange: (open: boolean) => void;
   onTriggerClick: () => void;
@@ -31,6 +33,29 @@ export const SeeMoreDialog = ({
 }: SeeMoreDialogProps) => {
   const { position } = item;
 
+  const formatDate = (date: Date) => {
+    const weekday = date.toLocaleDateString("en-US", { weekday: "long" });
+    const day = date.getDate();
+    return `${weekday} ${day}`;
+  };
+
+  // Group events by exact start time (HH:MM)
+  const groupEventsByStartTime = (events: Event[]) => {
+    const grouped: { [key: string]: Event[] } = {};
+
+    events.forEach((event) => {
+      const startTime = event.startTime;
+      if (!grouped[startTime]) {
+        grouped[startTime] = [];
+      }
+      grouped[startTime].push(event);
+    });
+
+    return grouped;
+  };
+
+  const groupedEvents = groupEventsByStartTime(item.events || []);
+
   return (
     <DialogRoot
       key={item.id}
@@ -43,7 +68,7 @@ export const SeeMoreDialog = ({
         top={`calc(${position.top} + 1px)`}
         left={`calc(${position.left})`}
         width={`calc(${position.width} - 2px)`}
-        height="100px"
+        height="116px"
         border="1px solid #D1D5DB"
         borderRadius="8px"
         bg="blue.50"
@@ -60,87 +85,85 @@ export const SeeMoreDialog = ({
         }}
       >
         <Text fontSize="14px" fontWeight="bold" color="#6B7280">
-          +{item.overflowCount}
+          + {item.overflowCount}
         </Text>
       </Box>
 
       <DialogPositioner>
         <DialogContent
           borderRadius="2xl"
-          maxW="360px"
-          w="100%"
+          w="360px"
           maxH="85vh"
           overflow="hidden"
           bg="white"
-          color="black"
+          color="#242424"
           boxShadow="0px 8px 32px rgba(0, 0, 0, 0.12)"
-          border="1px solid"
-          borderColor="gray.100"
         >
           {/* Header with Bottom Border and X Close */}
           <DialogHeader
             display="flex"
             justifyContent="space-between"
             alignItems="center"
-            px={5}
+            px={4}
             py={4}
+            h="56px"
             borderBottom="1px solid"
-            borderColor="gray.100"
+            borderColor="#D9E5F2"
           >
-            <DialogTitle fontSize="xl" fontWeight="bold">
-              {selectedDate.toLocaleDateString("en-US", {
-                weekday: "long",
-                day: "numeric",
-              })}
+            <DialogTitle fontSize="18px" fontWeight="semibold">
+              {formatDate(selectedDate)}
             </DialogTitle>
             <DialogCloseTrigger
               position="static"
               color="gray.500"
-              _hover={{ color: "black" }}
+              _hover={{ color: "#242424" }}
             >
-              <LuX size="20px" />
+              <LuX size="18px" />
             </DialogCloseTrigger>
           </DialogHeader>
 
           <DialogBody px={0} py={0}>
-            {/* Scrollable Container with Subtle White Scrollbar */}
+            {/* Scrollable Container with Visible Scrollbar */}
             <Box
               maxH="60vh"
               overflowY="auto"
-              px={5}
-              pb={5}
+              px={4}
+              pb={4}
               css={{
                 "&::-webkit-scrollbar": {
                   width: "8px",
+                  padding: "2px",
                 },
                 "&::-webkit-scrollbar-track": {
-                  background: "white",
+                  background: "#F9FAFB",
+                  borderRadius: "10px",
                 },
                 "&::-webkit-scrollbar-thumb": {
-                  background: "white", // Minimalist white
-                  border: "2px solid white", // Creates padding effect
+                  background: "#D1D5DB",
                   borderRadius: "10px",
                 },
                 "&::-webkit-scrollbar-thumb:hover": {
-                  background: "#F3F4F6", // Shows light gray only on hover
+                  background: "#9CA3AF",
                 },
-                msOverflowStyle: "none",
                 scrollbarWidth: "thin",
-                scrollbarColor: "white white",
+                scrollbarColor: "#D1D5DB #F9FAFB",
               }}
             >
-              {Object.entries(groupEventsByHour(item.events)).map(
-                ([hour, events]: [string, any[]]) => (
-                  <Box key={hour} mb={6} mt={4}>
+              {Object.entries(groupedEvents).map(
+                ([startTime, events]: [string, Event[]], groupIndex) => (
+                  <Box key={startTime} mt={groupIndex === 0 ? 4 : 6}>
+                    {/* Time Header */}
                     <Text
-                      fontWeight="bold"
-                      fontSize="lg"
-                      mb={3}
-                      color="gray.800"
+                      fontWeight="semibold"
+                      fontSize="16px"
+                      mb={2}
+                      color="#242424"
                     >
-                      {hour}
+                      {startTime}
                     </Text>
-                    <VStack align="stretch" gap={4}>
+
+                    {/* Events with same start time */}
+                    <VStack align="stretch" gap="8px">
                       {events.map((event) => {
                         const colors = getEventColor(event.color);
                         return (
@@ -150,10 +173,10 @@ export const SeeMoreDialog = ({
                             borderColor={colors.border}
                             bg={colors.bg}
                             borderRadius="xl"
-                            px={4}
-                            py={3}
+                            px="10px"
+                            py="8px"
                           >
-                            <HStack gap={3} align="center">
+                            <HStack gap="6px" align="center">
                               <Box
                                 w="38px"
                                 h="38px"
@@ -163,30 +186,30 @@ export const SeeMoreDialog = ({
                                 alignItems="center"
                                 justifyContent="center"
                                 fontWeight="bold"
-                                border="1px solid"
-                                borderColor="gray.200"
+                                fontSize="12px"
+                                color="#7E919F"
                               >
                                 {getInitials(event.person)}
                               </Box>
                               <Box flex="1">
                                 <HStack gap={2} align="baseline">
                                   <Text
-                                    fontWeight="bold"
-                                    color="gray.800"
-                                    fontSize="md"
+                                    fontWeight="semibold"
+                                    color="#242424"
+                                    fontSize="14px"
                                   >
                                     {event.title}
                                   </Text>
                                   <Text
-                                    fontSize="sm"
-                                    color="gray.500"
+                                    fontSize="12px"
+                                    color="#4E5D69"
                                     fontWeight="medium"
                                   >
                                     {event.startTime} - {event.endTime}
                                   </Text>
                                 </HStack>
                                 <Text
-                                  fontSize="sm"
+                                  fontSize="12px"
                                   fontWeight="semibold"
                                   color={colors.border}
                                 >

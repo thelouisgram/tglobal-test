@@ -19,7 +19,7 @@ const DropDown = ({ handleOptionClick }: DropDownProps) => {
       bg="white"
       borderRadius="8px"
       zIndex={1}
-      color="black"
+      color="#242424"
       border="1px solid #D9E5F2"
       align="stretch"
       p="8px"

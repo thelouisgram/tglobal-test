@@ -17,7 +17,7 @@ export const TimeColumn = ({ timeSlots }: TimeColumnProps) => {
           py="8px"
           bg="white"
         >
-          <Text fontSize="14px" color="black" fontWeight="medium">
+          <Text fontSize="14px" color="#242424" fontWeight="medium">
             {time}
           </Text>
         </Box>

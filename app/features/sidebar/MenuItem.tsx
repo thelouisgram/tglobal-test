@@ -18,7 +18,7 @@ export const MenuItem: React.FC<MenuItemComponentProps> = ({
       <Icon as={item.icon} boxSize="20px" color="gray.800" />
       <Text
         fontWeight={isActive ? "bold" : "medium"}
-        color={isActive ? "black" : "gray.600"}
+        color={isActive ? "#242424" : "gray.600"}
         flex={1}
       >
         {item.label}

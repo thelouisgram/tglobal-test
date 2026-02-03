@@ -51,7 +51,7 @@ const RightSide = () => {
         h={"38px"}
         w={"auto"}
         gap={0}
-        color={"black"}
+        color={"#242424"}
       >
         {/* Back button */}
         <HStack px="8px" py="10px" cursor="pointer">
@@ -84,7 +84,7 @@ const RightSide = () => {
           h={"38px"}
           w={"auto"}
           gap={"8px"}
-          color={"black"}
+          color={"#242424"}
           cursor="pointer"
           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
         >
@@ -98,19 +98,17 @@ const RightSide = () => {
           <Text fontSize={"14px"} fontWeight={"semibold"}>
             {selectedOption}
           </Text>
-          <IoChevronDown 
-            size={16} 
+          <IoChevronDown
+            size={16}
             color="#4E5D69"
             style={{
               transform: isDropdownOpen ? "rotate(180deg)" : "rotate(0deg)",
-              transition: "transform 0.2s"
+              transition: "transform 0.2s",
             }}
           />
         </HStack>
         {/* Dropdown */}
-        {isDropdownOpen && (
-         <DropDown handleOptionClick={handleOptionClick} />
-        )}
+        {isDropdownOpen && <DropDown handleOptionClick={handleOptionClick} />}
       </Box>
       {/* Publish all button */}
       <HStack
@@ -119,7 +117,7 @@ const RightSide = () => {
         borderRadius={"8px"}
         h={"38px"}
         w={"auto"}
-        color={"black"}
+        color={"#242424"}
         cursor="pointer"
       >
         <Text fontSize={"14px"} fontWeight={"medium"}>
@@ -133,7 +131,7 @@ const RightSide = () => {
         borderRadius={"8px"}
         h={"38px"}
         w={"auto"}
-        color={"black"}
+        color={"#242424"}
         gap={"8px"}
         cursor="pointer"
       >

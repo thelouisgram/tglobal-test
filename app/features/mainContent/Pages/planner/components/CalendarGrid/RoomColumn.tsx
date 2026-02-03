@@ -6,6 +6,7 @@ import {
 import { EventCard } from "./EventCard";
 import { SeeMoreDialog } from "./SeeMoreDialog";
 import dummyEvents from "@/app/utils/planner/events";
+import { Event } from "@/app/types/planner";
 
 interface RoomColumnProps {
   room: string;
@@ -16,7 +17,7 @@ interface RoomColumnProps {
   isSeeMoreOpen: boolean;
   selectedSeeMoreId: string | null;
   onSeeMoreOpenChange: (open: boolean) => void;
-  onSeeMoreTriggerClick: (id: string, events: any[]) => void;
+  onSeeMoreTriggerClick: (id: string, events: Event[]) => void;
 }
 
 export const RoomColumn = ({
