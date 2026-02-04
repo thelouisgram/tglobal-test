@@ -1,5 +1,7 @@
 import { Box, GridItem } from "@chakra-ui/react";
-import { calculateLayoutForRoom, RenderItem, events as dummyEvents, generateRandomColor } from "@/app/utils/planner";
+import { calculateLayoutForRoom, RenderItem } from "@/app/utils/planner/eventLayout";
+import dummyEvents from "@/app/utils/planner/events";
+import { generateRandomColor } from "@/app/utils/planner/colorUtils";
 import { EventCard } from "./EventCard";
 import { SeeMoreDialog } from "./SeeMoreDialog";
 import { Event } from "@/app/types/planner";

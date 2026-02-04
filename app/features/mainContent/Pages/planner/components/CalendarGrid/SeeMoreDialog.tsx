@@ -1,5 +1,5 @@
 import { Event } from "@/app/types/planner";
-import { RenderItem } from "@/app/utils/planner";
+import { RenderItem } from "@/app/utils/planner/eventLayout";
 import {
   Box,
   DialogRoot,
@@ -14,7 +14,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { LuX } from "react-icons/lu";
-import { getInitials, getEventColor } from "@/app/utils/planner";
+import { getInitials, getEventColor } from "@/app/utils/planner/colorUtils";
 
 interface SeeMoreDialogProps {
   item: RenderItem;

@@ -24,6 +24,7 @@ const Planner = () => {
     <VStack
       w={"full"}
       h={"full"}
+      minH="100dvh"
       gap="20px"
       bg={'white'}
       animation="fadeIn 0.5s ease-out"
@@ -38,7 +39,7 @@ const Planner = () => {
       <PlannerHeader />
       {/* Tab */}
       <PlannerTab activeTab={activeTab} setActiveTab={handleTabChange} />
-      <HStack w="full" align="stretch" gap="0px" h="100dvh" bg={'white'}>
+      <HStack w="full" align="stretch" gap="0px" h={'full'} minH="100dvh" bg={'white'}>
         <Roster />
       <VStack w="full" align="stretch" gap="20px">
         {/* Calendar Tool Bar */}
