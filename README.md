@@ -1,6 +1,4 @@
-# Frontend Developer Test — Roster / Planner
-
-Purpose
+# Frontend Developer Test — Web-based Planner
 
 This repository contains a small planner/roster UI used for frontend evaluation. It demonstrates a room-based calendar and a month overview, with drag/drop scheduling, event collision handling, and modular feature components.
 
@@ -12,6 +10,13 @@ Tech stack
 - date-fns
 
 Quick start
+
+## Clone the Repository
+
+```bash
+git clone https://github.com/thelouisgram/tglobal-test.git
+cd tglobal-test
+```
 
 1. Install dependencies
 
