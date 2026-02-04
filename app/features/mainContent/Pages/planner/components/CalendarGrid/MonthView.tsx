@@ -35,7 +35,7 @@ const MonthView = ({ selectedDate }: MonthViewProps) => {
       bg="white"
       border="1px solid #D9E5F2"
       borderRadius="12px"
-      overflow="hidden"
+      overflowY="auto"
     >
       {/* Weekday Headers */}
       <Grid

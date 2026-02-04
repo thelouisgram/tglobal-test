@@ -1,13 +1,8 @@
 import { Box, GridItem } from "@chakra-ui/react";
-import {
-  calculateLayoutForRoom,
-  RenderItem,
-} from "@/app/utils/planner/eventLayout";
+import { calculateLayoutForRoom, RenderItem, events as dummyEvents, generateRandomColor } from "@/app/utils/planner";
 import { EventCard } from "./EventCard";
 import { SeeMoreDialog } from "./SeeMoreDialog";
-import dummyEvents from "@/app/utils/planner/events";
 import { Event } from "@/app/types/planner";
-import { generateRandomColor } from "@/app/utils/planner/colorUtils";
 
 interface RoomColumnProps {
   room: string;

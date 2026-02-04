@@ -1,6 +1,6 @@
 "use client";
 import { Box, HStack, Text, VStack } from "@chakra-ui/react";
-import { getInitials, getEventColor } from "@/app/utils/planner/planner";
+import { getInitials, getEventColor } from "@/app/utils/planner";
 import { EventDetailsDialog } from "./EventDetailsDialog";
 import { Event } from "@/app/types/planner";
 import { useState } from "react";

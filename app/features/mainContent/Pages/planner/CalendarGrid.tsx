@@ -4,7 +4,7 @@ import { TimeColumn } from "./components/CalendarGrid/TimeColumn";
 import { RoomColumn } from "./components/CalendarGrid/RoomColumn";
 import MonthView from "./components/CalendarGrid/MonthView";
 import { Event } from "@/app/types/planner";
-import dummyEvents from "@/app/utils/planner/events";
+import { events as dummyEvents } from "@/app/utils/planner";
 
 const CalendarGrid = ({
   selectedDate,

@@ -3,7 +3,7 @@ import Planner from './Pages/planner/Planner'
 
 const PageArea = ({activePage}: {activePage: string}) => {
   return (
-    <VStack w='full' h='full' justifyContent='start' bg="white" >
+    <VStack w='full' h='full' justifyContent='start' bg="white">
         {activePage === 'planner' && <Planner />}
     </VStack>
   )

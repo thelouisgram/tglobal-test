@@ -38,7 +38,7 @@ const Planner = () => {
       <PlannerHeader />
       {/* Tab */}
       <PlannerTab activeTab={activeTab} setActiveTab={handleTabChange} />
-      <HStack w="full" align="stretch" gap="0px">
+      <HStack w="full" align="stretch" gap="0px" h="100dvh" bg={'white'}>
         <Roster />
       <VStack w="full" align="stretch" gap="20px">
         {/* Calendar Tool Bar */}

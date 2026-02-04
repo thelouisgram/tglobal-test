@@ -1,14 +1,27 @@
 export const formatDate = (date: Date) => {
-    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-    
-    return {
-      day: days[date.getDay()],
-      date: date.getDate(),
-      month: months[date.getMonth()],
-      year: date.getFullYear()
-    };
+  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sept",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  return {
+    day: days[date.getDay()],
+    date: date.getDate(),
+    month: months[date.getMonth()],
+    year: date.getFullYear(),
   };
+};
 
 import { generateRandomColor } from "./colorUtils";
 import { formatDate as _formatDate } from "./planner";

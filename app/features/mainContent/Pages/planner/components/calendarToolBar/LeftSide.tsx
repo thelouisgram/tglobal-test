@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { HStack, Button, Text } from "@chakra-ui/react";
-import { formatDate } from "@/app/utils/planner/planner";
+import { formatDate } from "@/app/utils/planner";
 import { useRef } from "react";
 
 const LeftSide = ({

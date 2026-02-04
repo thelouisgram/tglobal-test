@@ -2,6 +2,7 @@
 import { Box, VStack } from "@chakra-ui/react";
 import { useState, useMemo } from "react";
 import { getWorkersWithInitials } from "./components/Roster/utils";
+import type { Worker } from "@/app/types/planner";
 import { RosterHeader } from "./components/Roster/RosterHeader";
 import { SearchBar } from "./components/Roster/SearchBar";
 import { RosterTabs } from "./components/Roster/RosterTabs";
@@ -11,7 +12,7 @@ const Roster = () => {
   const [isActive, setIsActive] = useState("available");
   const [search, setSearch] = useState("");
 
-  const workers = getWorkersWithInitials();
+  const workers: Worker[] = getWorkersWithInitials();
   const workersTab = ["all", "available", "on leave"];
 
   const filteredWorkers = useMemo(() => {

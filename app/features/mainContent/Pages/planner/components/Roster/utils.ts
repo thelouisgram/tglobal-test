@@ -1,17 +1,19 @@
-import type { Worker } from "@/app/types/planner";
 import { workersList } from "./workers";
+import type { Worker } from "@/app/types/planner";
 
-export const generateInitials = (name: string): string => {
-  return name
-    .split(" ")
-    .map((word) => word[0]?.toUpperCase())
-    .join("")
-    .slice(0, 2);
+export const getInitials = (name: string): string => {
+  const parts = name.split(" ").filter(Boolean);
+  if (parts.length === 0) return "";
+  const first = parts[0][0];
+  const last = parts.length > 1 ? parts[parts.length - 1][0] : "";
+  return (first + last).toUpperCase();
 };
 
 export const getWorkersWithInitials = (): Worker[] => {
   return workersList.map((worker) => ({
     ...worker,
-    initials: generateInitials(worker.name),
-  }));
+    initials: (worker as any).initials || getInitials(worker.name),
+  })) as Worker[];
 };
+
+export default getWorkersWithInitials;

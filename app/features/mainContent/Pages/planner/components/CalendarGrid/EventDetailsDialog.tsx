@@ -13,7 +13,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { LuX } from "react-icons/lu";
-import { getInitials, getEventColor } from "@/app/utils/planner/planner";
+import { getInitials, getEventColor } from "@/app/utils/planner";
 
 interface EventDetailsDialogProps {
   event: Event | null;

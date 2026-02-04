@@ -7,7 +7,7 @@ import PageArea from "./PageArea"
 const MainContent = () => {
   const [activePage, setActivePage] = useState('planner')
   return (
-    <VStack w='full' h='full' justifyContent='start' gap={0} ml='260px' bg="white">
+    <VStack w='full' h='100dvh' justifyContent='start' gap={0} ml='260px' bg="white">
       <GlobalHeader />
       <PageArea activePage={activePage} />
     </VStack>
