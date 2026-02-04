@@ -16,7 +16,7 @@ import {
   Notepad2,
   HamburgerMenu,
   Stickynote,
-  MenuBoard
+  MenuBoard,
 } from "iconsax-reactjs";
 import { IoChevronDown } from "react-icons/io5";
 
@@ -136,7 +136,7 @@ const Sidebar: React.FC<SidebarProps> = ({
 
           {/* Rooster Section */}
           <Box>
-            <Collapsible.Root open={isRoosterOpen}>
+            <Collapsible.Root id="sidebar-collapsible" open={isRoosterOpen}>
               <Collapsible.Trigger asChild>
                 <HStack
                   p="12px"
