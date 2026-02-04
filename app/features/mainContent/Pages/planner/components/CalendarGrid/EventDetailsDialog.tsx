@@ -13,7 +13,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { LuX } from "react-icons/lu";
-import { getInitials, getEventColor } from "../utils";
+import { getInitials, getEventColor } from "@/app/utils/planner/planner";
 
 interface EventDetailsDialogProps {
   event: Event | null;
@@ -62,7 +62,7 @@ export const EventDetailsDialog = ({
               position="static"
               color="gray.500"
               _hover={{ color: "#242424" }}
-              cursor={'pointer'}
+              cursor={"pointer"}
             >
               <LuX size="18px" />
             </DialogCloseTrigger>
@@ -75,10 +75,10 @@ export const EventDetailsDialog = ({
                 borderColor={colors.border}
                 bg={colors.bg}
                 borderRadius="xl"
-                px={"8px"}
-                py="6px"
+                px="10px"
+                py="8px"
               >
-                <HStack gap={"8px"} alignItems={"center"}>
+                <HStack gap="6px" align="center">
                   <Box
                     w="38px"
                     h="38px"
@@ -88,22 +88,30 @@ export const EventDetailsDialog = ({
                     alignItems="center"
                     justifyContent="center"
                     fontWeight="bold"
-                    fontSize="14px"
-                    color={"#7E919F"}
+                    fontSize="12px"
+                    color="#7E919F"
                   >
                     {getInitials(event.person)}
                   </Box>
                   <Box flex="1">
+                    <HStack gap={2} align="baseline">
+                      <Text
+                        fontWeight="semibold"
+                        color="#242424"
+                        fontSize="14px"
+                      >
+                        {event.title}
+                      </Text>
+                      <Text fontSize="12px" color="#4E5D69" fontWeight="medium">
+                        {event.startTime} - {event.endTime}
+                      </Text>
+                    </HStack>
                     <Text
-                      fontWeight="bold"
-                      color="#242424"
-                      fontSize="14px"
-                      mb={1}
+                      fontSize="12px"
+                      fontWeight="semibold"
+                      color={colors.border}
                     >
-                      {event.title}
-                    </Text>
-                    <Text fontSize="14px" color="#4E5D69" fontWeight="medium">
-                      {event.startTime} - {event.endTime}
+                      {event.person}
                     </Text>
                   </Box>
                 </HStack>

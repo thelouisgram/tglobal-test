@@ -14,7 +14,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { LuX } from "react-icons/lu";
-import { getInitials, getEventColor } from "../utils";
+import { getInitials, getEventColor } from "@/app/utils/planner/planner";
 
 interface SeeMoreDialogProps {
   item: RenderItem;

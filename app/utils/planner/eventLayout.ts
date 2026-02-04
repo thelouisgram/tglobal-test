@@ -206,20 +206,19 @@ const createSeeMoreItem = (overflowEvents: Event[], allClusterEvents: Event[]): 
     const topPx = (minStart - baseMinutes) * (120 / 30);
     const heightPx = 100; 
 
+    const room = allClusterEvents && allClusterEvents.length > 0 ? allClusterEvents[0].room : 'room';
     return {
-        type: 'seemore',
-        events: allClusterEvents, 
-        overflowCount: overflowEvents.length,
-        id: `seemore-${overflowEvents[0].id}`,
-        position: {
-            top: `${topPx}px`,
-            height: `${heightPx}px`,
-            left: `66.66%`,
-            width: `33.33%`
-        }
+      type: 'seemore',
+      events: allClusterEvents,
+      overflowCount: overflowEvents.length,
+      id: `seemore-${room}-${minStart}`,
+      position: {
+        top: `${topPx}px`,
+        height: `${heightPx}px`,
+        left: `66.66%`,
+        width: `33.33%`
+      }
     };
 };
 
 export default calculateLayoutForRoom;
-
-

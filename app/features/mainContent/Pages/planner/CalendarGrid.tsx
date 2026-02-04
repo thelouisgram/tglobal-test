@@ -3,6 +3,8 @@ import { useState } from "react";
 import { TimeColumn } from "./components/CalendarGrid/TimeColumn";
 import { RoomColumn } from "./components/CalendarGrid/RoomColumn";
 import MonthView from "./components/CalendarGrid/MonthView";
+import { Event } from "@/app/types/planner";
+import dummyEvents from "@/app/utils/planner/events";
 
 const CalendarGrid = ({
   selectedDate,
@@ -38,10 +40,15 @@ const CalendarGrid = ({
 
   const selectedDateStr = selectedDate.toISOString().split("T")[0];
 
+  const [events, setEvents] = useState<Event[]>(dummyEvents);
   const [isSeeMoreOpen, setIsSeeMoreOpen] = useState(false);
   const [selectedSeeMoreId, setSelectedSeeMoreId] = useState<string | null>(
     null,
   );
+
+  const addEvent = (event: Event) => {
+    setEvents((prevEvents) => [...prevEvents, event]);
+  };
 
   const handleSeeMoreOpenChange = (open: boolean) => {
     setIsSeeMoreOpen(open);
@@ -56,7 +63,7 @@ const CalendarGrid = ({
   };
 
   return (
-    <Box w="full" h="full" bg="white" px="30px" paddingBottom="30px">
+    <Box w="full" h="full" bg="white" pl={'20px'} pr="30px" paddingBottom="30px">
       {viewType === "Maand" ? (
         <MonthView selectedDate={selectedDate} />
       ) : (
@@ -122,6 +129,8 @@ const CalendarGrid = ({
               selectedSeeMoreId={selectedSeeMoreId}
               onSeeMoreOpenChange={handleSeeMoreOpenChange}
               onSeeMoreTriggerClick={handleSeeMoreTriggerClick}
+              events={events}
+              onAddEvent={addEvent}
             />
           ))}
         </Grid>

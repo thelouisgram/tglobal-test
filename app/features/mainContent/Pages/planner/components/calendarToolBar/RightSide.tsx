@@ -1,4 +1,4 @@
-import { Box, Button, HStack, Text } from "@chakra-ui/react";
+import { Box, Button, HStack, Text, useBreakpointValue } from "@chakra-ui/react";
 import { useState } from "react";
 import {
   IoChevronBack,
@@ -25,6 +25,11 @@ const RightSide = ({
   // Dropdown
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
+  // Responsive text display
+  const showFullText = useBreakpointValue({ base: false, md: true });
+  const buttonSize = useBreakpointValue({ base: "36px", md: "38px" });
+  const iconSize = useBreakpointValue({ base: 18, md: 20 });
+
   // Handle option click
   const handleOptionClick = (option: string) => {
     setViewType(option);
@@ -44,73 +49,98 @@ const RightSide = ({
   };
 
   return (
-    <HStack gap={"8px"}>
+    <HStack 
+      gap={{ base: "4px", sm: "6px", md: "8px" }}
+      flexWrap={{ base: "wrap", lg: "nowrap" }}
+      justifyContent={{ base: "flex-end", lg: "flex-start" }}
+    >
       {/* Users button */}
       <Button
         border={"1px solid #D9E5F2"}
         borderRadius={"8px"}
-        h={"38px"}
-        w={"38px"}
+        h={buttonSize}
+        w={buttonSize}
+        minW={buttonSize}
         p={0}
       >
-        <PiUsersThree size={20} />
+        <PiUsersThree size={iconSize} />
       </Button>
+      
       {/* Filter button */}
       <Button
         border={"1px solid #D9E5F2"}
         borderRadius={"8px"}
-        h={"38px"}
-        w={"38px"}
+        h={buttonSize}
+        w={buttonSize}
+        minW={buttonSize}
         p={0}
       >
-        <LuFilter size={20} strokeWidth={1.5} />
+        <LuFilter size={iconSize} strokeWidth={1.5} />
       </Button>
+      
       {/* Current day button */}
       <HStack
         border={"1px solid #D9E5F2"}
         borderRadius={"8px"}
-        h={"38px"}
+        h={buttonSize}
         w={"auto"}
         gap={0}
         color={"#242424"}
       >
         {/* Back button */}
-        <HStack px="8px" py="10px" cursor="pointer" onClick={handlePrevDay}>
+        <HStack 
+          px={{ base: "6px", md: "8px" }}
+          py={{ base: "8px", md: "10px" }}
+          cursor="pointer" 
+          onClick={handlePrevDay}
+          _hover={{ bg: "gray.50" }}
+        >
           <IoChevronBack size={16} color="#4E5D69" />
         </HStack>
+        
         {/* Current day text */}
         <Text
           borderLeft={"1px solid #D9E5F2"}
           borderRight={"1px solid #D9E5F2"}
-          px="12px"
+          px={{ base: "8px", md: "12px" }}
           h="full"
           display="flex"
           alignItems="center"
-          fontSize={"14px"}
+          fontSize={{ base: "13px", md: "14px" }}
           fontWeight={"semibold"}
           cursor="pointer"
           onClick={handleToday}
           _hover={{ bg: "gray.50" }}
+          whiteSpace="nowrap"
         >
-          Current Day
+          {showFullText ? "Current Day" : "Today"}
         </Text>
+        
         {/* Forward button */}
-        <HStack px="8px" py="10px" cursor="pointer" onClick={handleNextDay}>
+        <HStack 
+          px={{ base: "6px", md: "8px" }}
+          py={{ base: "8px", md: "10px" }}
+          cursor="pointer" 
+          onClick={handleNextDay}
+          _hover={{ bg: "gray.50" }}
+        >
           <IoChevronForward size={16} color="#4E5D69" />
         </HStack>
       </HStack>
-      {/* This day button */}
+      
+      {/* View type dropdown */}
       <Box position={"relative"}>
         <HStack
-          p="12px"
+          p={{ base: "8px", md: "12px" }}
           border={"1px solid #D9E5F2"}
           borderRadius={"8px"}
-          h={"38px"}
+          h={buttonSize}
           w={"auto"}
-          gap={"8px"}
+          gap={{ base: "6px", md: "8px" }}
           color={"#242424"}
           cursor="pointer"
           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+          _hover={{ bg: "gray.50" }}
         >
           <Box
             bg={"#0CA740"}
@@ -118,8 +148,13 @@ const RightSide = ({
             h={"10px"}
             borderRadius={"full"}
             alignItems={"center"}
+            flexShrink={0}
           />
-          <Text fontSize={"14px"} fontWeight={"semibold"}>
+          <Text 
+            fontSize={{ base: "13px", md: "14px" }}
+            fontWeight={"semibold"}
+            whiteSpace="nowrap"
+          >
             {viewType}
           </Text>
           <IoChevronDown
@@ -134,37 +169,52 @@ const RightSide = ({
         {/* Dropdown */}
         {isDropdownOpen && <DropDown handleOptionClick={handleOptionClick} />}
       </Box>
+      
       {/* Publish all button */}
       <HStack
-        p="12px"
+        p={{ base: "8px", md: "12px" }}
         border={"1px solid #D9E5F2"}
         borderRadius={"8px"}
-        h={"38px"}
+        h={buttonSize}
         w={"auto"}
         color={"#242424"}
         cursor="pointer"
+        _hover={{ bg: "gray.50" }}
+        display={{ base: "none", sm: "flex" }}
       >
-        <Text fontSize={"14px"} fontWeight={"medium"}>
+        <Text 
+          fontSize={{ base: "13px", md: "14px" }}
+          fontWeight={"medium"}
+          whiteSpace="nowrap"
+        >
           Publish All
         </Text>
       </HStack>
+      
       {/* Lock shift button */}
       <HStack
-        p="12px"
+        p={{ base: "8px", md: "12px" }}
         border={"1px solid #D9E5F2"}
         borderRadius={"8px"}
-        h={"38px"}
+        h={buttonSize}
         w={"auto"}
         color={"#242424"}
-        gap={"8px"}
+        gap={{ base: "4px", md: "8px" }}
         cursor="pointer"
+        _hover={{ bg: "gray.50" }}
       >
-        <LuPlus size={18} color="#4E5D69" />
-        <Text fontSize={"14px"} fontWeight={"semibold"}>
+        <LuPlus size={iconSize} color="#4E5D69" />
+        <Text 
+          fontSize={{ base: "13px", md: "14px" }}
+          fontWeight={"semibold"}
+          whiteSpace="nowrap"
+          display={{ base: "none", sm: "block" }}
+        >
           Lock Shift
         </Text>
       </HStack>
     </HStack>
   );
 };
+
 export default RightSide;

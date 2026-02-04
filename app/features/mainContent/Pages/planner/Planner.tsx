@@ -1,9 +1,10 @@
 import PlannerHeader from "./PlannerHeader";
-import { VStack } from "@chakra-ui/react";
+import { HStack, VStack } from "@chakra-ui/react";
 import PlannerTab from "./PlannerTab";
 import CalendarToolBar from "./CalendarToolBar";
 import CalendarGrid from "./CalendarGrid";
 import { useState } from "react";
+import Roster from "./Roster";
 
 const Planner = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -24,6 +25,7 @@ const Planner = () => {
       w={"full"}
       h={"full"}
       gap="20px"
+      bg={'white'}
       animation="fadeIn 0.5s ease-out"
       css={{
         "@keyframes fadeIn": {
@@ -36,15 +38,20 @@ const Planner = () => {
       <PlannerHeader />
       {/* Tab */}
       <PlannerTab activeTab={activeTab} setActiveTab={handleTabChange} />
-      {/* Calendar Tool Bar */}
-      <CalendarToolBar
-        selectedDate={selectedDate}
-        setSelectedDate={setSelectedDate}
-        viewType={viewType}
-        setViewType={setViewType}
-      />
-      {/* Calendar Grid */}
-      <CalendarGrid selectedDate={selectedDate} viewType={viewType} />
+      <HStack w="full" align="stretch" gap="0px">
+        <Roster />
+      <VStack w="full" align="stretch" gap="20px">
+        {/* Calendar Tool Bar */}
+        <CalendarToolBar
+          selectedDate={selectedDate}
+          setSelectedDate={setSelectedDate}
+          viewType={viewType}
+          setViewType={setViewType}
+        />
+        {/* Calendar Grid */}
+        <CalendarGrid selectedDate={selectedDate} viewType={viewType} />
+      </VStack>
+      </HStack>
     </VStack>
   );
 };

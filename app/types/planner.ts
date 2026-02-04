@@ -18,3 +18,18 @@ export interface Event {
   date: string; // Format: YYYY-MM-DD
   specialist: string;
 }
+
+export interface Worker {
+  id: number;
+  name: string;
+  initials?: string;
+  availableFrom: string;
+  availableTo: string;
+  fullTimeStr: string;
+  hours: string;
+  status: "available" | "on leave";
+  days: {
+    label: string;
+    active: boolean;
+  }[];
+}
