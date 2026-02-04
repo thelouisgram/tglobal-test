@@ -53,7 +53,13 @@ export const EventCard = ({ event, position }: EventCardProps) => {
             </Text>
           </HStack>
 
-          <Text fontSize="12px" fontWeight="semibold" color="#242424">
+          <Text
+            fontSize="12px"
+            fontWeight="semibold"
+            color="#242424"
+            lineClamp={1}
+            textOverflow="ellipsis"
+          >
             {event.title}
           </Text>
           <Text fontSize="10px" color="gray.600">

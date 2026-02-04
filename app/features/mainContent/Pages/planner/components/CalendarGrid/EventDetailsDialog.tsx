@@ -30,7 +30,11 @@ export const EventDetailsDialog = ({
   const colors = getEventColor(event.color);
 
   return (
-    <DialogRoot open={isOpen} onOpenChange={(e) => onOpenChange(e.open)}>
+    <DialogRoot
+      placement="center"
+      open={isOpen}
+      onOpenChange={(e) => onOpenChange(e.open)}
+    >
       <DialogPositioner>
         <DialogContent
           borderRadius="2xl"
@@ -58,6 +62,7 @@ export const EventDetailsDialog = ({
               position="static"
               color="gray.500"
               _hover={{ color: "#242424" }}
+              cursor={'pointer'}
             >
               <LuX size="18px" />
             </DialogCloseTrigger>
@@ -70,13 +75,13 @@ export const EventDetailsDialog = ({
                 borderColor={colors.border}
                 bg={colors.bg}
                 borderRadius="xl"
-                px={"10px"}
-                py={"12px"}
+                px={"8px"}
+                py="6px"
               >
-                <HStack gap={"12px"} align="center">
+                <HStack gap={"8px"} alignItems={"center"}>
                   <Box
-                    w="48px"
-                    h="48px"
+                    w="38px"
+                    h="38px"
                     borderRadius="full"
                     bg="white"
                     display="flex"
@@ -92,7 +97,7 @@ export const EventDetailsDialog = ({
                     <Text
                       fontWeight="bold"
                       color="#242424"
-                      fontSize="16px"
+                      fontSize="14px"
                       mb={1}
                     >
                       {event.title}

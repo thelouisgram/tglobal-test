@@ -94,7 +94,6 @@ const MonthView = ({ selectedDate }: MonthViewProps) => {
                   </Text>
                 </Box>
               </VStack>
-              {/* Event placeholders could go here */}
             </GridItem>
           );
         })}

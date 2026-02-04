@@ -59,6 +59,7 @@ export const SeeMoreDialog = ({
   return (
     <DialogRoot
       key={item.id}
+      placement="center"
       open={isOpen}
       onOpenChange={(e) => onOpenChange(e.open)}
     >
@@ -122,6 +123,7 @@ export const SeeMoreDialog = ({
               position="static"
               color="gray.500"
               _hover={{ color: "#242424" }}
+              cursor={'pointer'}
             >
               <LuX size="18px" />
             </DialogCloseTrigger>
