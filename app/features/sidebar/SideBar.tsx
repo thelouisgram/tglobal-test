@@ -21,8 +21,8 @@ import {
 import { IoChevronDown } from "react-icons/io5";
 
 import type { MenuItemType, SidebarProps } from "@/app/types/sidebar";
-import { RoosterMenuItem } from "./RoosterMenuItem";
-import { MenuItem } from "./MenuItem";
+import { RoosterMenuItem } from "./components/RoosterMenuItem";
+import { MenuItem } from "./components/MenuItem";
 
 const Sidebar: React.FC<SidebarProps> = ({
   activeItem = "planner",
@@ -150,7 +150,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                   <Text
                     fontSize="16px"
                     fontWeight="bold"
-                    color="gray.800"
+                    color="#242424"
                     flex={1}
                   >
                     Rooster
@@ -158,7 +158,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                   <Icon
                     as={IoChevronDown}
                     boxSize="20px"
-                    color="gray.800"
+                    color="#242424"
                     transform={
                       isRoosterOpen ? "rotate(180deg)" : "rotate(0deg)"
                     }

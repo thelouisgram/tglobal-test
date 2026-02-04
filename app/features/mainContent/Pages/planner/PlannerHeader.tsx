@@ -30,7 +30,7 @@ const PlannerHeader = () => {
           color={"#4E5D69"}
         >
           <IoChevronDown size={16} color="#4E5D69" />
-          <Text fontWeight="semibold" fontSize="14px">
+          <Text fontWeight="semibold" fontSize="14px" color={'#242424'}>
             Open Days
           </Text>
         </Button>
@@ -48,7 +48,7 @@ const PlannerHeader = () => {
           color={"#4E5D69"}
         >
           <IoAdd width={16} height={16} color={"#4E5D69"} />
-          <Text fontWeight="semibold" fontSize="14px">
+          <Text fontWeight="semibold" fontSize="14px" color={'#242424'}>
             Nieuw
           </Text>
           <IoChevronDown width={16} height={16} />
